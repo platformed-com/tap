@@ -14,7 +14,6 @@ class Libxmlsec1AT12 < Formula
     depends_on "pkgconf" => :build
     depends_on "gnutls" # Yes, it wants both ssl/tls variations
     depends_on "libgcrypt"
-    depends_on "libxml2"
     depends_on "openssl@3"
     uses_from_macos "libxslt"
   
@@ -30,6 +29,7 @@ class Libxmlsec1AT12 < Formula
         "--enable-mscrypto=no",
         "--enable-mscng=no",
         "--with-openssl=#{Formula["openssl@3"].opt_prefix}",
+        "--with-libxml=/usr",
       ]
   
       system "./configure", *args, *std_configure_args
