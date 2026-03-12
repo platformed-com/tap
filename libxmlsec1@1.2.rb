@@ -1,9 +1,9 @@
 class Libxmlsec1AT12 < Formula
     desc "XML security library - 1.2 branch"
     homepage "https://www.aleksey.com/xmlsec/"
-    url "https://www.aleksey.com/xmlsec/download/xmlsec1-1.2.41.tar.gz"
+    url "https://github.com/platformed-com/tap/releases/download/v1.2.41/xmlsec1-1.2.41.tar.gz"
     conflicts_with "libxmlsec1", because: "both stable and legacy libxmlsec provide the same library name"
-    sha256 "a0aecfdf1f190c6b866a278e42746b6582729a493f6ac6a1556a4663ff3ce625"
+    sha256 "e872f7999b9a90d410d91a9cd7b4471063a0fb67f86423012b764afe2d2c1884"
     license "MIT"
   
     livecheck do
