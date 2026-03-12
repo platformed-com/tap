@@ -17,9 +17,6 @@ class Libxmlsec1AT12 < Formula
     depends_on "openssl@3"
     uses_from_macos "libxslt"
   
-    # Add HOMEBREW_PREFIX/lib to dl load path
-    patch :DATA
-  
     def install
       args = [
         "--disable-crypto-dl",
@@ -41,17 +38,3 @@ class Libxmlsec1AT12 < Formula
       system bin/"xmlsec1-config", "--version"
     end
   end
-
-__END__
-diff --git a/src/dl.c b/src/dl.c
-index a9110a9..f2739a1 100644
---- a/src/dl.c
-+++ b/src/dl.c
-@@ -133,6 +133,7 @@ xmlSecCryptoDLLibraryCreate(const xmlChar* name) {
-     }
- 
- #ifdef XMLSEC_DL_LIBLTDL
-+    lt_dlsetsearchpath("HOMEBREW_PREFIX/lib");
-     lib->handle = lt_dlopenext((char*)lib->filename);
-     if(lib->handle == NULL) {
-         xmlSecIOError("lt_dlopenext", lib->filename, NULL);
